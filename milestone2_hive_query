@@ -1,0 +1,11 @@
+#url:https://youtu.be/5IGhD6uIZl0
+
+hive> create database bitdb;
+hive> show databases;
+hive> use bitdb;
+hive> create table bitValue13 (sNumber int,dat string,open string,highestValue string,lowestValue string,closingRate string,volume string,marketCap string)
+    > row format delimited
+    > fields terminated by ',';
+hive> show tables;
+hive> load data local inpath 'file:///home/richi/masters_semester_2/data_mining_WQD7005/tests_script/bitcoin_price.csv' into table bitValue13;
+hive> select * from bitValue13;
