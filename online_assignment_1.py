@@ -1,6 +1,8 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup as soup
 import pandas as pd
+import matplotlib.pyplot as plt
+
 url = "https://coinmarketcap.com/currencies/bitcoin/historical-data/"
 html = urlopen(url).read()
 soap_html = soup(html, "html.parser")
@@ -43,3 +45,8 @@ print(df)
 
 df.to_csv("~/masters_semester_2/data_mining_WQD7005/tests_script/bitcoin_price.csv")
 #print(tbody)
+plt.figure(figsize=(16,8))
+plt.plot(df.Date, df['Close**'], color='r')
+plt.xlabel('Dates')
+plt.ylabel('Closing rates on that day')
+plt.show()
