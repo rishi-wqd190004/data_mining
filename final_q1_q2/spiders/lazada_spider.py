@@ -19,15 +19,14 @@ class lazadaSpider(scrapy.Spider):
 
 		items = WebScraperItem()
 		#for looop to loop for  all the pages(later)
-		for each in all_laptops_names:
-			all_laptops_names = response.xpath("//a[@class='a-link-normal a-text-normal']//span/text()").extract()
-			price_laptop = response.xpath("//span[@class='a-price-whole']/text()").extract()
-			rated_from_people = response.xpath("//span[@class='a-size-base']/text()").extract()
+		all_laptops_names = response.xpath("//a[@class='a-link-normal a-text-normal']//span/text()").extract()
+		price_laptop = response.xpath("//span[@class='a-price-whole']/text()").extract()
+		rated_from_people = response.xpath("//span[@class='a-size-base']/text()").extract()
 
 
 		#driver.find_element_by_xpath("//li[@class='a-last']").click()
-			items['all_laptops'] = all_laptops_names
-			items['price_laptop_in_USD'] = price_laptop
-			items['rated_from'] = rated_from_people
+		items['all_laptops'] = all_laptops_names
+		items['price_laptop_in_USD'] = price_laptop
+		items['rated_from'] = rated_from_people
 		
-			yield items
+		yield items
